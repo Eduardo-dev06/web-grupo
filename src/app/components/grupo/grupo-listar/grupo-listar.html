@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Grupos cadastrados</h2>
+
+  <button type="button" class="botao-voltar" (click)="voltarParaCadastro()">
+    Voltar ao cadastro
+  </button>
+
+
+  <div class="pesquisa">
+    <input
+      type="text"
+      name="filtro"
+      [(ngModel)]="filtro"
+      placeholder="Digite o nome do grupo"
+      (keyup.enter)="buscarGrupos()"
+    />
+
+    <button type="button" (click)="buscarGrupos()">
+      Buscar
+    </button>
+  </div>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome do grupo</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    @for (grupo of grupos; track grupo.id) {
+    <tr>
+      <td>{{ grupo.id }}</td>
+      <td>{{ grupo.nome }}</td>
+    </tr>
+    } @empty {
+    <tr>
+      <td colspan="2">Nenhum grupo encontrado.</td>
+    </tr>
+    }
+    </tbody>
+  </table>
+</div>

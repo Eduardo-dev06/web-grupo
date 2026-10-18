@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Cadastrar Grupo</h2>
+
+  <form (ngSubmit)="salvarGrupo()">
+    <div class="campo">
+      <label for="nome">Nome do grupo</label>
+      <input
+        id="nome" type="text" name="nome" [(ngModel)]="grupo.nome"
+        placeholder="Digite o nome do grupo" required />
+    </div>
+
+    <button type="submit">Salvar Grupo</button>
+  </form>
+<br>
+  <button type="button" (click)="irParaListagem()">
+    Listar grupos cadastrados
+  </button>
+
+</div>
