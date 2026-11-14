@@ -25,6 +25,7 @@
     <tr>
       <th>ID</th>
       <th>Nome do grupo</th>
+      <th>Ações</th>
     </tr>
     </thead>
 
@@ -33,10 +34,15 @@
     <tr>
       <td>{{ grupo.id }}</td>
       <td>{{ grupo.nome }}</td>
+      <td>
+        <button type="button" (click)="deletarGrupo(grupo.id)">
+          Excluir
+        </button>
+      </td>
     </tr>
     } @empty {
     <tr>
-      <td colspan="2">Nenhum grupo encontrado.</td>
+      <td colspan="3">Nenhum grupo encontrado.</td>
     </tr>
     }
     </tbody>

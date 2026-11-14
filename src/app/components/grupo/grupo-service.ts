@@ -20,4 +20,8 @@ export class GrupoService {
     });
   }
 
+  deletarGrupo(id: number) {
+    return this.chamadaHttp.delete<void>(`${this.urlGrupo}/deletar-grupo/${id}`);
+  }
+
 }

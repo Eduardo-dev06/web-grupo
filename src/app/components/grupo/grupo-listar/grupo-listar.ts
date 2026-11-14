@@ -49,4 +49,23 @@ export class GrupoListar implements OnInit {
       },
     });
   }
+
+  deletarGrupo(id: number): void {
+    if (!confirm('Tem certeza que deseja excluir este grupo?')) {
+      return;
+    }
+
+    this.grupoService.deletarGrupo(id).subscribe({
+      next: () => {
+        alert('Grupo excluído com sucesso!');
+        this.listarGrupos();
+      },
+      error: (erro: unknown) => {
+        console.error('Erro ao excluir grupo:', erro);
+        alert('Não foi possível excluir o grupo.');
+      },
+    });
+  }
+
+
 }
